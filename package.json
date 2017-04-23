@@ -2,6 +2,12 @@
   "name": "shedule-spa",
   "version": "0.0.0",
   "license": "MIT",
+  "main": "index.html",
+  "keywords": [
+    "Angular",
+    "Shedule"
+  ],
+  "author": "Sergey Stelmakh <stelmakhserg@gmail.com>",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
