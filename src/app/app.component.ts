@@ -9,5 +9,4 @@ declare var alertify: any;
 })
 export class AppComponent {
   title = 'app works!';
-
 }
