@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-declare var alertify: any;
 
 @Component({
   selector: 'app-root',
@@ -8,6 +7,6 @@ declare var alertify: any;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'app works!';
+  title = 'app works !';
 
 }
