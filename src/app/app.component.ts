@@ -10,6 +10,4 @@ declare var alertify: any;
 export class AppComponent {
   title = 'app works!';
 
-  private _notifier: any = alertify.success('Ready!');
-
 }
