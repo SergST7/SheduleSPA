@@ -2,19 +2,24 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
-import {DatepickerModule} from 'ngx-bootstrap/datepicker';
+
+//routing
+import {routing} from "./app.routing";
 
 import { AppComponent } from './app.component';
+import {NavbarComponent} from './components/navbar/navbar.component';
+
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    DatepickerModule.forRoot()
+    routing
   ],
   providers: [],
   bootstrap: [AppComponent]
