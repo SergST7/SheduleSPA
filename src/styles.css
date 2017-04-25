@@ -51,3 +51,11 @@ body {
 .carousel-control.right {
     background-image: none;
 }
+
+.hero-spacer {
+    margin-top: 50px;
+}
+
+.hero-feature {
+    margin-bottom: 30px;
+}
