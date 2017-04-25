@@ -19,4 +19,35 @@ body {
     color: whitesmoke;
 }
 
+.adjust1 {
+    float: left;
+    width: 100%;
+    margin-bottom: 0;
+}
 
+.adjust2 {
+    margin: 0;
+}
+
+.carousel-indicators .active {
+    background: #31708f;
+}
+
+.carousel-indicators li {
+    border: 1px solid #ccc;
+}
+
+.carousel-control {
+    color: #31708f;
+    width: 5%;
+}
+
+.carousel-control:hover,
+.carousel-control:focus {
+    color: #31708f;
+}
+
+.carousel-control.left,
+.carousel-control.right {
+    background-image: none;
+}
