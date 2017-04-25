@@ -3,14 +3,15 @@
  */
 
 import {Routes, RouterModule} from "@angular/router";
+import {HomeComponent} from "./components/home/home.component";
 
 
 const appRoutes: Routes = [
-  // { path: '', redirectTo: 'home', pathMatch: 'full'},
+  {path: '', redirectTo: 'home', pathMatch: 'full'},
   // { path: 'users', component: UserListComponent },
   // { path: 'schedules', component: ScheduleListComponent },
   // { path: 'schedules/:id/edit', component: ScheduleEditComponent },
-  // { path: 'home', component: HomeComponent }
+  {path: 'home', component: HomeComponent}
 ];
 
 export const routing = RouterModule.forRoot(appRoutes);
