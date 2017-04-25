@@ -2,6 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 
 //routing
 import {routing} from "./app.routing";
@@ -23,7 +24,8 @@ import {HomeComponent} from './components/home/home.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    routing
+    routing,
+    BrowserAnimationsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
