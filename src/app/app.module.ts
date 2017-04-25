@@ -12,6 +12,7 @@ import {NavbarComponent} from './components/navbar/navbar.component';
 import {FooterComponent} from './components/footer/footer.component';
 import {HomeComponent} from './components/home/home.component';
 import {MobileHideDirective} from './shared/mobile-hide.directive';
+import {UserListComponent} from './components/users/user-list/user-list.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import {MobileHideDirective} from './shared/mobile-hide.directive';
     NavbarComponent,
     FooterComponent,
     HomeComponent,
-    MobileHideDirective
+    MobileHideDirective,
+    UserListComponent
   ],
   imports: [
     BrowserModule,
