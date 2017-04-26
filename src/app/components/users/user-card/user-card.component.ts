@@ -1,6 +1,7 @@
 import {Component, OnInit, Output, Input, EventEmitter} from '@angular/core';
 import {IUser} from "../../../shared/interface";
 import {DataService} from "../../../shared/services/data.service";
+import {NotificationService} from "../../../shared/services/notification.service";
 
 @Component({
   selector: 'shed-user-card',
@@ -13,7 +14,8 @@ export class UserCardComponent implements OnInit {
 
   isEdit: boolean = false;
 
-  constructor(public dataService: DataService) {
+  constructor(public dataService: DataService,
+              private notificationService: NotificationService,) {
   }
 
   ngOnInit() {
@@ -31,8 +33,12 @@ export class UserCardComponent implements OnInit {
   createUser() {
     this.dataService.createUser(this.user)
       .subscribe((userCreated) => {
-        this.isEdit = false;
-        this.userCreated.emit(userCreated);
-      });
+          this.isEdit = false;
+          this.userCreated.emit(userCreated);
+        },
+        error => {
+          this.notificationService.printErrorMessage('Failed to created user');
+          this.notificationService.printErrorMessage(error);
+        });
   }
 }

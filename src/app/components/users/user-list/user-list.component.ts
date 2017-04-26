@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {IUser} from "../../../shared/interface";
 import {DataService} from "../../../shared/services/data.service";
+import {NotificationService} from "../../../shared/services/notification.service";
 
 @Component({
   selector: 'shed-user-list',
@@ -12,7 +13,8 @@ export class UserListComponent implements OnInit {
   users: IUser[];
   addingUser: boolean = false;
 
-  constructor(private dataService: DataService) {
+  constructor(private dataService: DataService,
+              private notificationService: NotificationService) {
   }
 
   ngOnInit() {
@@ -22,7 +24,7 @@ export class UserListComponent implements OnInit {
           console.log(users)
         },
         error => {
-          console.log('Failed to load users. ' + error);
+          this.notificationService.printErrorMessage('Failed to load users. ' + error);
         });
   }
 
@@ -51,6 +53,7 @@ export class UserListComponent implements OnInit {
 
   userCreated(user: any) {
     this.addingUser = false;
+    this.notificationService.printSuccessMessage(user.name + ' has been created');
     console.log(user);
   }
 

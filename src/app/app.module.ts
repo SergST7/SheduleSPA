@@ -22,6 +22,7 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 
 //services
 import {DataService} from "./shared/services/data.service";
+import {NotificationService} from "./shared/services/notification.service";
 
 
 @NgModule({
@@ -42,7 +43,7 @@ import {DataService} from "./shared/services/data.service";
     BrowserAnimationsModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 300}),
   ],
-  providers: [DataService],
+  providers: [DataService, NotificationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
