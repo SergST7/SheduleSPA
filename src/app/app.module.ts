@@ -7,6 +7,7 @@ import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 //routing
 import {routing} from "./app.routing";
 
+//components
 import { AppComponent } from './app.component';
 import {NavbarComponent} from './components/navbar/navbar.component';
 import {FooterComponent} from './components/footer/footer.component';
@@ -14,6 +15,10 @@ import {HomeComponent} from './components/home/home.component';
 import {MobileHideDirective} from './shared/mobile-hide.directive';
 import {UserListComponent} from './components/users/user-list/user-list.component';
 import {UserCardComponent} from './components/users/user-card/user-card.component';
+
+//fake api
+import {InMemoryDataService} from "./in-memory-web-api";
+import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 
 
 @NgModule({
@@ -31,7 +36,8 @@ import {UserCardComponent} from './components/users/user-card/user-card.componen
     FormsModule,
     HttpModule,
     routing,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 300}),
   ],
   providers: [],
   bootstrap: [AppComponent]
