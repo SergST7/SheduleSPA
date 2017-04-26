@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {IUser} from "../../../shared/interface";
+import {DataService} from "../../../shared/services/data.service";
 
 @Component({
   selector: 'shed-user-list',
@@ -7,10 +9,20 @@ import {Component, OnInit} from '@angular/core';
 })
 export class UserListComponent implements OnInit {
 
-  constructor() {
+  users: IUser[];
+
+  constructor(private dataService: DataService) {
   }
 
   ngOnInit() {
+    this.dataService.getUsers()
+      .subscribe((users: IUser[]) => {
+          this.users = users;
+          console.log(users)
+        },
+        error => {
+          console.log('Failed to load users. ' + error);
+        });
   }
 
 }

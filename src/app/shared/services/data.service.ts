@@ -18,7 +18,7 @@ export class DataService {
   getUsers(): Observable<IUser[]> {
     return this.http.get(this._baseUrl + 'users')
       .map((res: Response) => {
-        return res.json();
+        return res.json().data as IUser[];
       })
       .catch(this.handleError);
   }

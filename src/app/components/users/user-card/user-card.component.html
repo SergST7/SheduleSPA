@@ -1,20 +1,20 @@
 <div class="panel panel-primary">
 	<div class="panel-heading">
-		<h3 class="panel-title pull-left"><i class="fa fa-user" aria-hidden="true"></i>Vladimir Litovka</h3>
+		<h3 class="panel-title pull-left"><i class="fa fa-user" aria-hidden="true"></i>{{user.name}}</h3>
 		<div class="clearfix"></div>
 	</div>
 
 	<div class="panel-body">
 		<div class="">
-			<img src="https://randomuser.me/api/portraits/med/men/83.jpg" class="img-avatar" alt="">
+			<img src="{{user.avatar}}" class="img-avatar img-rounded" alt="">
 			<div class="caption">
 				<p>
-					<span>developer</span>
+					<span>{{user.profession}}</span>
 				</p>
 				<p>
 					<button class="btn btn-primary">
 						<i class="fa fa-calendar-check-o" aria-hidden="true"></i> Schedules
-						<span class="badge">2</span>
+						<span class="badge">{{user.schedulesCreated}}</span>
 					</button>
 				</p>
 			</div>

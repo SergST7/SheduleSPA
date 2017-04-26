@@ -1,4 +1,5 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
+import {IUser} from "../../../shared/interface";
 
 @Component({
   selector: 'shed-user-card',
@@ -6,6 +7,7 @@ import {Component, OnInit} from '@angular/core';
   styleUrls: ['./user-card.component.css']
 })
 export class UserCardComponent implements OnInit {
+  @Input() user: IUser;
 
   constructor() {
   }

@@ -13,14 +13,14 @@ export class InMemoryDataService implements InMemoryDbService {
       {
         "id": 1,
         "name": "Vladimir Litovka",
-        "avatar": "https://randomuser.me/api/portraits/med/men/45.jpg",
+        "avatar": "https://randomuser.me/api/portraits/men/45.jpg",
         "profession": "developer",
         "schedulesCreated": 2
       },
       {
         "id": 2,
         "name": "Alexander Pasichnik",
-        "avatar": "https://randomuser.me/api/portraits/med/men/83.jpg",
+        "avatar": "https://randomuser.me/api/portraits/men/83.jpg",
         "profession": "manager",
         "schedulesCreated": 1
       }
