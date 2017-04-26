@@ -31,7 +31,7 @@ export class UserListComponent implements OnInit {
     var newUser = {
       id: -1,
       name: '',
-      avatar: 'https://randomuser.me/api/portraits/lego/5.jpg',
+      avatar: `https://randomuser.me/api/portraits/men/${this.randomInteger(0, 99)}.jpg`,
       profession: '',
       schedulesCreated: 0
     };
@@ -42,5 +42,18 @@ export class UserListComponent implements OnInit {
     this.addingUser = false;
     this.users.splice(0, 1);
   }
+
+  randomInteger(min, max) {
+    let rand = min + Math.random() * (max - min);
+    rand = Math.round(rand);
+    return rand;
+  }
+
+  userCreated(user: any) {
+    this.addingUser = false;
+    console.log(user);
+  }
+
+
 
 }

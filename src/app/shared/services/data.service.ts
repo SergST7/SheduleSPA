@@ -1,15 +1,14 @@
 import {Injectable} from '@angular/core';
-import {Http, Response} from '@angular/http';
+import {Http, Response, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import {IUser} from "../interface";
 
-
 @Injectable()
 export class DataService {
 
-  _baseUrl: string = '';
+  private _baseUrl: string = '';
 
   constructor(private http: Http) {
     this._baseUrl = 'api/';
@@ -22,6 +21,24 @@ export class DataService {
       })
       .catch(this.handleError);
   }
+
+  createUser(user: IUser): Observable<IUser> {
+
+    user.id = null;
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+
+    return this.http.post(this._baseUrl + 'users/', JSON.stringify(user), {
+      headers: headers
+    })
+      .map((res: Response) => {
+        console.log(res.json().data);
+        return res.json().data;
+      })
+      .catch(this.handleError);
+  }
+
+
 
   private handleError(error: any) {
     var applicationError = error.headers.get('Application-Error');
