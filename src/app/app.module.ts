@@ -13,6 +13,7 @@ import {FooterComponent} from './components/footer/footer.component';
 import {HomeComponent} from './components/home/home.component';
 import {MobileHideDirective} from './shared/mobile-hide.directive';
 import {UserListComponent} from './components/users/user-list/user-list.component';
+import {UserCardComponent} from './components/users/user-card/user-card.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {UserListComponent} from './components/users/user-list/user-list.componen
     FooterComponent,
     HomeComponent,
     MobileHideDirective,
-    UserListComponent
+    UserListComponent,
+    UserCardComponent
   ],
   imports: [
     BrowserModule,
