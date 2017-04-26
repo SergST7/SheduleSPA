@@ -20,6 +20,10 @@ export class UserListComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.getData();
+  }
+
+  getData() {
     this.dataService.getUsers()
       .subscribe((users: IUser[]) => {
           this.users = users;
@@ -29,6 +33,7 @@ export class UserListComponent implements OnInit {
           this.notificationService.printErrorMessage('Failed to load users. ' + error);
         });
   }
+
 
   addUser() {
     this.addingUser = true;
@@ -55,12 +60,17 @@ export class UserListComponent implements OnInit {
 
   userCreated(user: any) {
     this.addingUser = false;
+    this.getData();
     this.notificationService.printSuccessMessage(user.name + ' has been created');
-    console.log(user);
+    // console.log(user);
   }
 
   userRemoved(user: any) {
-    _.remove(this.users, user);
+    // console.log(user);
+    //
+    // _.remove(this.users, user);
+    // console.log(this.users);
+    this.getData();
     // inform user
     this.notificationService.printSuccessMessage(user.name + ' has been removed');
   }

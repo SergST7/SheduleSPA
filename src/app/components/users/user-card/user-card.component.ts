@@ -14,27 +14,35 @@ export class UserCardComponent implements OnInit {
   @Output() removeUser = new EventEmitter();
 
   isEdit: boolean = false;
+  editedUser: IUser;
 
   constructor(public dataService: DataService,
               private notificationService: NotificationService,) {
   }
 
   ngOnInit() {
+    this.editedUser = JSON.parse(JSON.stringify(this.user));
     if (this.user.id < 0) {
       this.isEdit = !this.isEdit
     }
   }
 
   isUserValid(): boolean {
-    return !(this.user.name.trim() === "")
-      && !(this.user.profession.trim() === "")
-      && !(this.user.avatar.trim() === "");
+    return !(this.editedUser.name.trim() === "")
+      && !(this.editedUser.profession.trim() === "")
+      && !(this.editedUser.avatar.trim() === "");
+  }
+
+  editUser() {
+    this.isEdit = !this.isEdit;
+    this.editedUser = JSON.parse(JSON.stringify(this.user));
   }
 
   createUser() {
-    this.dataService.createUser(this.user)
+    this.dataService.createUser(this.editedUser)
       .subscribe((userCreated) => {
           this.isEdit = false;
+          this.user = userCreated;
           this.userCreated.emit(userCreated);
         },
         error => {
@@ -57,6 +65,23 @@ export class UserCardComponent implements OnInit {
             this.notificationService.printErrorMessage(error);
             //this.slimLoader.complete();
           })
-      });
+      }
+    )
+  }
+
+  updateUser() {
+    //this.slimLoader.start();
+    this.dataService.updateUser(this.editedUser)
+      .subscribe(() => {
+          this.user = this.editedUser;
+          this.isEdit = !this.isEdit;
+          this.notificationService.printSuccessMessage(this.user.name + ' has been updated');
+          //this.slimLoader.complete();
+        },
+        error => {
+          this.notificationService.printErrorMessage('Failed to edit user');
+          this.notificationService.printErrorMessage(error);
+          //this.slimLoader.complete();
+        });
   }
 }

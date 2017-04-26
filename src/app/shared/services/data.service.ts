@@ -23,6 +23,7 @@ export class DataService {
   }
 
   createUser(user: IUser): Observable<IUser> {
+    console.log(user);
     user.id = null;
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -41,6 +42,19 @@ export class DataService {
     return this.http.delete(this._baseUrl + 'users/' + id)
       .map((res: Response) => {
         return res
+      })
+      .catch(this.handleError);
+  }
+
+  updateUser(user: IUser): Observable<void> {
+
+    let headers = new Headers();
+    headers.append('Content-Type', 'application/json');
+    return this.http.put(this._baseUrl + 'users/' + user.id, JSON.stringify(user), {
+      headers: headers
+    })
+      .map((res: Response) => {
+        return;
       })
       .catch(this.handleError);
   }
