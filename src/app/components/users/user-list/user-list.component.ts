@@ -10,6 +10,7 @@ import {DataService} from "../../../shared/services/data.service";
 export class UserListComponent implements OnInit {
 
   users: IUser[];
+  addingUser: boolean = false;
 
   constructor(private dataService: DataService) {
   }
@@ -23,6 +24,23 @@ export class UserListComponent implements OnInit {
         error => {
           console.log('Failed to load users. ' + error);
         });
+  }
+
+  addUser() {
+    this.addingUser = true;
+    var newUser = {
+      id: -1,
+      name: '',
+      avatar: 'https://randomuser.me/api/portraits/lego/5.jpg',
+      profession: '',
+      schedulesCreated: 0
+    };
+    this.users.splice(0, 0, newUser);
+  }
+
+  cancelAddUser() {
+    this.addingUser = false;
+    this.users.splice(0, 1);
   }
 
 }
