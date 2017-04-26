@@ -20,6 +20,9 @@ import {UserCardComponent} from './components/users/user-card/user-card.componen
 import {InMemoryDataService} from "./in-memory-web-api";
 import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 
+//services
+import {DataService} from "./shared/services/data.service";
+
 
 @NgModule({
   declarations: [
@@ -39,7 +42,7 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
     BrowserAnimationsModule,
     InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 300}),
   ],
-  providers: [],
+  providers: [DataService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
