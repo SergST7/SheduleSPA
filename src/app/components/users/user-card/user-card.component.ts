@@ -11,6 +11,7 @@ import {NotificationService} from "../../../shared/services/notification.service
 export class UserCardComponent implements OnInit {
   @Input() user: IUser;
   @Output() userCreated = new EventEmitter();
+  @Output() removeUser = new EventEmitter();
 
   isEdit: boolean = false;
 
@@ -40,5 +41,22 @@ export class UserCardComponent implements OnInit {
           this.notificationService.printErrorMessage('Failed to created user');
           this.notificationService.printErrorMessage(error);
         });
+  }
+
+  removeUserModal() {
+    this.notificationService.openConfirmationDialog('Are you sure you want to remove '
+      + this.user.name + '?',
+      () => {
+        //this.slimLoader.start();
+        this.dataService.deleteUser(this.user.id)
+          .subscribe(res => {
+            console.log(res);
+            this.removeUser.emit(this.user);
+            //this.slimLoader.complete();
+          }, error => {
+            this.notificationService.printErrorMessage(error);
+            //this.slimLoader.complete();
+          })
+      });
   }
 }

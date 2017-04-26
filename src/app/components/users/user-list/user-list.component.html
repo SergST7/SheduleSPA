@@ -9,7 +9,8 @@
 
 <div class="row text-center user-wrap">
 	<div class="col-md-3 col-sm-6 hero-feature" *ngFor="let user of users">
-		<shed-user-card [user]="user" (userCreated)="userCreated($event)"></shed-user-card>
+		<shed-user-card [user]="user" (userCreated)="userCreated($event)"
+		                (removeUser)="userRemoved($event)"></shed-user-card>
 	</div>
 </div>
 

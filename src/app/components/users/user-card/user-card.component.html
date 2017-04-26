@@ -44,11 +44,12 @@
 		<div [hidden]="user.id < 0">
 			<button class="btn btn-default btn-xs">
 				<i class="fa fa-pencil" aria-hidden="true"></i>
+				{{!isEdit ? "Edit" : "Cancel"}}
 			</button>
-			<button class="btn btn-default btn-xs">
+			<button class="btn btn-default btn-xs" [hidden]="!isEdit">
 				<i class="fa fa-pencil-square-o" aria-hidden="true"></i>Update
 			</button>
-			<button class="btn btn-danger btn-xs">
+			<button class="btn btn-danger btn-xs" (click)="removeUserModal()">
 				<i class="fa fa-times" aria-hidden="true"></i>Remove
 			</button>
 		</div>

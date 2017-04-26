@@ -23,7 +23,6 @@ export class DataService {
   }
 
   createUser(user: IUser): Observable<IUser> {
-
     user.id = null;
     let headers = new Headers();
     headers.append('Content-Type', 'application/json');
@@ -38,6 +37,13 @@ export class DataService {
       .catch(this.handleError);
   }
 
+  deleteUser(id: number): Observable<void> {
+    return this.http.delete(this._baseUrl + 'users/' + id)
+      .map((res: Response) => {
+        return res
+      })
+      .catch(this.handleError);
+  }
 
 
   private handleError(error: any) {

@@ -3,6 +3,8 @@ import {IUser} from "../../../shared/interface";
 import {DataService} from "../../../shared/services/data.service";
 import {NotificationService} from "../../../shared/services/notification.service";
 
+import * as _ from 'lodash';
+
 @Component({
   selector: 'shed-user-list',
   templateUrl: './user-list.component.html',
@@ -57,6 +59,9 @@ export class UserListComponent implements OnInit {
     console.log(user);
   }
 
-
-
+  userRemoved(user: any) {
+    _.remove(this.users, user);
+    // inform user
+    this.notificationService.printSuccessMessage(user.name + ' has been removed');
+  }
 }
