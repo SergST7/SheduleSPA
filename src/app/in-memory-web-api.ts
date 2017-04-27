@@ -3,7 +3,7 @@
  */
 
 import {InMemoryDbService} from "angular-in-memory-web-api";
-import {IUser} from "./shared/interface";
+import {IUser, ISchedule} from "./shared/interface";
 
 export class InMemoryDataService implements InMemoryDbService {
 
@@ -26,8 +26,29 @@ export class InMemoryDataService implements InMemoryDbService {
       }
     ]
 
+
+    let shedules: ISchedule[] = [
+      {
+        "id": 1,
+        "title": "Skype coll",
+        "description": "Lorem ipsum dolor sit amet, consectetur",
+        "timeStart": new Date("February 4, 2016 10:13:00"),
+        "timeEnd": new Date("February 4, 2016 10:13:00"),
+        "location": "Office",
+        "type": "coll",
+        "status": "done",
+        "dateCreated": new Date("February 4, 2016 10:13:00"),
+        "dateUpdated": new Date("February 4, 2016 10:13:00"),
+        "creator": "User",
+        "creatorId": 1,
+        "attendees": [],
+        "statuses": [],
+        "types": [],
+      }]
+
     return {
-      users
+      users,
+      shedules
     }
   }
 }

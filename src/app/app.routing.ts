@@ -5,12 +5,13 @@
 import {Routes, RouterModule} from "@angular/router";
 import {HomeComponent} from "./components/home/home.component";
 import {UserListComponent} from "./components/users/user-list/user-list.component";
+import {SchedulesListComponent} from "./components/shedules/shedules-list/shedules-list.component";
 
 
 const appRoutes: Routes = [
   {path: '', redirectTo: 'home', pathMatch: 'full'},
   {path: 'users', component: UserListComponent},
-  // { path: 'schedules', component: ScheduleListComponent },
+  {path: 'schedules', component: SchedulesListComponent},
   // { path: 'schedules/:id/edit', component: ScheduleEditComponent },
   {path: 'home', component: HomeComponent}
 ];
