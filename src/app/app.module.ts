@@ -15,7 +15,7 @@ import {HomeComponent} from './components/home/home.component';
 import {MobileHideDirective} from './shared/mobile-hide.directive';
 import {UserListComponent} from './components/users/user-list/user-list.component';
 import {UserCardComponent} from './components/users/user-card/user-card.component';
-import {SchedulesListComponent} from './components/shedules/shedules-list/shedules-list.component';
+import {SchedulesListComponent} from './components/schedules/schedules-list/schedules-list.component';
 
 //fake api
 import {InMemoryDataService} from "./in-memory-web-api";

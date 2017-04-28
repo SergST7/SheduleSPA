@@ -1,6 +1,6 @@
 import {async, ComponentFixture, TestBed} from '@angular/core/testing';
 
-import {ShedulesListComponent} from './shedules-list.component';
+import {ShedulesListComponent} from './schedules-list.component';
 
 describe('ShedulesListComponent', () => {
   let component: ShedulesListComponent;

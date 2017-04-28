@@ -6,8 +6,8 @@ import {ISchedule} from "../../../shared/interface";
 
 @Component({
   selector: 'shed-shedules-list',
-  templateUrl: './shedules-list.component.html',
-  styleUrls: ['./shedules-list.component.css']
+  templateUrl: 'schedules-list.component.html',
+  styleUrls: ['schedules-list.component.css']
 })
 export class SchedulesListComponent implements OnInit {
   public schedules: ISchedule[];

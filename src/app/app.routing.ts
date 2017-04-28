@@ -5,7 +5,7 @@
 import {Routes, RouterModule} from "@angular/router";
 import {HomeComponent} from "./components/home/home.component";
 import {UserListComponent} from "./components/users/user-list/user-list.component";
-import {SchedulesListComponent} from "./components/shedules/shedules-list/shedules-list.component";
+import {SchedulesListComponent} from "./components/schedules/schedules-list/schedules-list.component";
 
 
 const appRoutes: Routes = [
