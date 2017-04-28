@@ -24,6 +24,7 @@ import {InMemoryWebApiModule} from "angular-in-memory-web-api";
 //services
 import {DataService} from "./shared/services/data.service";
 import {NotificationService} from "./shared/services/notification.service";
+import {SlimLoadingBarModule} from "ng2-slim-loading-bar";
 
 
 @NgModule({
@@ -43,9 +44,13 @@ import {NotificationService} from "./shared/services/notification.service";
     HttpModule,
     routing,
     BrowserAnimationsModule,
+    SlimLoadingBarModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemoryDataService, {delay: 300}),
   ],
-  providers: [DataService, NotificationService],
+  providers: [
+    DataService,
+    NotificationService,
+    SlimLoadingBarModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

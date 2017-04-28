@@ -27,7 +27,7 @@ export class InMemoryDataService implements InMemoryDbService {
     ]
 
 
-    let shedules: ISchedule[] = [
+    let schedules: ISchedule[] = [
       {
         "id": 1,
         "title": "Skype coll",
@@ -48,7 +48,7 @@ export class InMemoryDataService implements InMemoryDbService {
 
     return {
       users,
-      shedules
+      schedules
     }
   }
 }

@@ -3,7 +3,7 @@ import {Http, Response, Headers} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import {IUser} from "../interface";
+import {IUser, ISchedule} from "../interface";
 
 @Injectable()
 export class DataService {
@@ -58,6 +58,18 @@ export class DataService {
       })
       .catch(this.handleError);
   }
+
+
+  // SCHEDULES
+
+  getSchedules(): Observable<ISchedule[]> {
+    return this.http.get(this._baseUrl + 'schedules')
+      .map((res: Response) => {
+        return res.json().data as ISchedule[];
+      })
+      .catch(this.handleError);
+  }
+
 
 
   private handleError(error: any) {
